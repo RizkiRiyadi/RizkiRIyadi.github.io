@@ -6,12 +6,12 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 - About
 - Portofolio Projects
   - Python 
-    - [Forecasting Natural Gas Demand using the Auto Arima and Facebook Prophet](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/edit/main/README.md#Forecasting-Natural-Gas-Demand-using-the-Auto-Arima-and-Facebook-Prophet)
+    - [Forecasting Natural Gas Demand using the Auto Arima and Facebook Prophet](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#Forecasting-Natural-Gas-Demand-using-the-Auto-Arima-and-Facebook-Prophet)
     - [Beauty Center Database with SQL](https://github.com/RizkiRiyadi/beauty_center_databse_case)
     - (https://github.com/RizkiRiyadi/beauty_center_databse_case)
 - Education 
 - Certificates
-- [Contacts](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md##contacts)
+- [Contacts](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#contacts)
 
 ## Protofolio Projects
 ### [Forecasting Natural Gas Demand using the Auto Arima and Facebook Prophet](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang)
