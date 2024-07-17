@@ -33,7 +33,7 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 ![ForecastAccuracy](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/ForecastAccuracy.png)
 
 ### Supply Chain
-**Repo:** [here](https://github.com/RizkiRiyadi/Supply_Chain_Case)
+**Repo:** [here](https://github.com/RizkiRiyadi/Supply_Chain_Case/blob/main/Supply-Chain-EDA.ipynb)
 
 **Description:**
 
@@ -45,8 +45,14 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 
 
 ### Beauty Center Database
-**Repo:** [here](https://github.com/RizkiRiyadi/beauty_center_databse_case)
-
+- **Repo:**
+  - Data Definition Language (DDL): [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Query%20B%20DDL.sql)
+  - Data Manipulation Language (DML):
+    - Database: [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Query%20C%20DML.sql)
+    - Transactions Simulation: [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Query%20D%20DML%20simulate.sql)
+  - Query Case: [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/10%20case%20Query%20E.sql)
+ 
+    
 **Description:**
 
 **Goal:**
@@ -54,7 +60,7 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 **Findings:**
 
 *hsdsd
-
+![ERD](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Beauty%20Center%20ERD.png)
 
 
 ## CV
