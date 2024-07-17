@@ -26,7 +26,7 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 
 *hsdsd
 
-![OverviewData](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/OverviewData.png)
+![OverviewData](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/ForecastPhotos/OverviewData.png)
 ![Train_Test_Forecast_SARIMA](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Train_Test_Forecast_SARIMA.png)
 ![Actual_Forecast_Prophet](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Actual_Forecast_Prophet.png)
 ![Actual_Forecast_Prophet_Extended Holiday](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Actual_Forecast_Prophet_Extended%20Holiday.png)
