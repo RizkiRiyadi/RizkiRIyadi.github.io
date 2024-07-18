@@ -22,17 +22,22 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 
 **Description:** This is my thesis project focuses on forecasting gas demand for industrial sector customers in Karawang Regency using the Facebook Prophet and auto ARIMA forecasting methods to speed up the process of confirming customer gas availability using Value Stream Mapping (VSM). Currently, PGN faces challenges in planning accurate and timely  gas  distribution,  this  is  caused by inaccurate customer gas usage and PGN still uses qualitative forecasting. This is made worse by the lack of employee awareness in prioritizing gas distribution planning and this process takes a long time, so that confirmation of gas availability is often late.
 
-**Goal:**
+**Goals:**
 - Know the best forecasting method to predict gas demand for industrial sector customers in Karawang Regency at PT. Perusahaan Gas Negara Tbk.
 - Know the characteristics of gas usage by industrial sector customers in Karawang Regency at PT Perusahaan Gas Negara Tbk.
 
 
 **Findings:**
 
-
 ![OverviewData](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/OverviewData.png)
+![Decomposition](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/ForecastPhotos/time%20series%20decomposition.png)
+
+
+In the picture above we can see there are weekly seasonality in gas usage data. So we using Seasonal Autoregressive Integrated Moving Average (SARIMA) instead of Autoregressive Integrated Moving Average (ARIMA)
 
 ![Train_Test_Forecast_SARIMA](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Train_Test_Forecast_SARIMA.png)
+
+For our best model in auto SARIMA we cannot forecast sudden drop in our gas demand, so we are using facebook prophet that well known best foreceasting method to maintan sudden spike in demand.
 
 ![Actual_Forecast_Prophet](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Actual_Forecast_Prophet.png)
 
