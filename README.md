@@ -37,19 +37,24 @@ In the picture above we can see there are weekly seasonality in gas usage data. 
 
 ![Train_Test_Forecast_SARIMA](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Train_Test_Forecast_SARIMA.png)
 
-For our best model in auto SARIMA we cannot forecast sudden drop in our gas demand, so we are using facebook prophet that well known best foreceasting method to maintan sudden spike in demand.
-
-![Actual_Forecast_Prophet](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Actual_Forecast_Prophet.png)
+For our best model in auto SARIMA we cannot forecast sudden drop in our gas demand, so we are using facebook prophet that well known best foreceasting method to maintan sudden spike in demand
 
 
-![Actual_Forecast_Prophet_Extended Holiday](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/Actual_Forecast_Prophet_Extended%20Holiday.png)
+![Actual_Forecast_Prophet_Extended Holiday](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/ForecastPhotos/Actual%20and%20Forecast%20Data%20Prophet%20With%20Extended%20Holiday.png)
 
+With facebook prophet we can forecast the sudden demand drop when idul fitri.
 
 ![ForecastAccuracy](https://github.com/RizkiRiyadi/ForecastGasDemandKarawang/blob/main/ForecastPhotos/ForecastAccuracy.png)
 
+I tried many well know forecasting method and i get facebook prophet as the best method for my data.
+
 ![CVSM](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/ForecastPhotos/CVSM.png)
 
+Forecasting is one of many step to confirming gas availbility to customer. I am using Value Stream Mapping and time study to improve this process, removing waste, and shorten bureaucracy.
+
 ![FVSM](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/ForecastPhotos/FVSM.png)
+
+With my propsed Future State Value Stream Mapping we can get rid of time waste as many as 371.23 minutes.
 
 
 ### Supply Chain
