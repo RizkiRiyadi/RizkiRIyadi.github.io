@@ -120,7 +120,7 @@ Here is a dataset that i use from Fashion and Beauty startup. The dataset is bas
 <br/>
 
 ### Beauty Center Database
-- **Repo:**
+**Repo:**
   - Data Definition Language (DDL): [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Query%20B%20DDL.sql)
   - Data Manipulation Language (DML):
     - Database: [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Query%20C%20DML.sql)
@@ -128,13 +128,22 @@ Here is a dataset that i use from Fashion and Beauty startup. The dataset is bas
   - Query Case: [here](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/10%20case%20Query%20E.sql)
  
     
-**Description:**
+**Description:** Madyline is a beauty center managed by your best friend, Mady. Mady manage all of activities that belongs to Madyline like provide beauty treatment service to customer and purchasing the
+beauty product with supplier. To improve Madyline’s management, Mady hired you as a database administrator are required to analyze and design a database for Bob’s shop using SQL Server Management Studio. 
 
 **Goal:**
+1. Create Entity Relationship Diagram to maintain service transactions and purchase transactions.
+2. Create a database system using DDL syntax that relevant with service transactions and purchase transactions.
+3. Create query using DML syntax to fill the tables in database systems with data based on the following conditions:
+    - Master table must be filled with more than or equals 10 data.
+    - Transaction table must be filled with more than or equals 15 data.
+    - Transaction detail table must be filled with more than or equals 25 data. 
+4. Create query using DML syntax to simulate the transactions process for service transactions and purchase transactions. Note: DML syntax to fill database and DML syntax to simulate the transactions process should be a different query.
+5.  Provide some query that resulting important data
 
-**Findings:**
-
-*hsdsd
+**Answer:**
+1. ERD to maintain service transactions and purchase transactions.
+   I am using 
 ![ERD](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Beauty%20Center%20ERD.png)
 
 
