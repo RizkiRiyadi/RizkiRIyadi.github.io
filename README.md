@@ -6,7 +6,7 @@ Hi, I'm Rizki! I am an fresh graduate from Binus and majoring Industrial Enginee
 - [About](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#about)
 - [Portofolio Projects](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#protofolio-projects)
   - Python 
-    - [Forecasting Natural Gas Demand using SARIMA and Facebook Prophet](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#Forecasting-Natural-Gas-Demand-Using-The-Auto-SARIMA-and-Facebook-Prophet-Method-To-Accelerate-The-Process-Of-Confirming-Gas-Availability-With-Value-Stream-Mapping-(VSM)-at-PT.-Perusahaan-Gas-Negara-Tbk)
+    - [Forecasting Natural Gas Demand Using The Auto Arima And Facebook Prophet Method To Accelerate The Process Of Confirming Gas Availability In Value Stream Mapping (VSM) PT. Perusahaan Gas Negara Tbk](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#Forecasting-Natural-Gas-Demand-Using-The-Auto-SARIMA-and-Facebook-Prophet-Method-To-Accelerate-The-Process-Of-Confirming-Gas-Availability-With-Value-Stream-Mapping-(VSM)-at-PT.-Perusahaan-Gas-Negara-Tbk)
     - [Supply Chain](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#supply-chain)
   - SQL
     - [Beauty Center Database](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/README.md#beauty-center-database)
@@ -54,20 +54,70 @@ Forecasting is one of many step to confirming gas availbility to customer. I am 
 
 ![FVSM](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/ForecastPhotos/FVSM.png)
 
-With my propsed Future State Value Stream Mapping we can get rid of time waste as many as 371.23 minutes.
+With my propsed Future State Value Stream Mapping we can get rid of time) waste as many as 371.23 minutes.
 
+<br/>
 
 ### Supply Chain
 **Repo:** [here](https://github.com/RizkiRiyadi/Supply_Chain_Case/blob/main/Supply-Chain-EDA.ipynb)
 
-**Description:**
+**Description:** Supply chain analytics is a valuable part of data-driven decision-making in various industries such as manufacturing, retail, healthcare, and logistics. It is the process of collecting, analyzing and interpreting data related to the movement of products and services from suppliers to customers.
+
+Here is a dataset that i use from Fashion and Beauty startup. The dataset is based on the supply chain of Makeup products. Below are all the features in the dataset:
+
+- Product Type
+- SKU
+- Price
+- Availability
+- Number of products sold
+- Revenue generated
+- Customer demographics
+- Stock levels
+- Lead times
+- Order quantities
+- Shipping times
+- Shipping carriers
+- Shipping costs
+- Supplier name
+- Location
+- Lead time
+- Production volumes
+- Manufacturing lead time
+- Manufacturing costs
+- Inspection results
+- Defect rates
+- Transportation modes
+- Routes
+- Costs
 
 **Goal:**
+- Analyze data using data visualization to find area of improvement
 
 **Findings:**
 
-*hsdsd
+![Correlatiom](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/SupplyChainPhotos/CorrelationAnalysisTop5.png)
 
+- Price with manufacturing lead time indicate weak negative linear relationship with -0,3 value.
+- Order quantities with costs indicate weak linear positive linear realationship with 0,17 value.
+- Other than that realationship with other columns have low significance.
+
+![SalesRevenue](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/SupplyChainPhotos/Sales%26RevenueAnalysis.png)
+
+- The higher the price of skincare product the more revenue generated.
+- The lower the price of cosmetics and haircare products the less revenue generated.
+  
+![SalesProductType](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/SupplyChainPhotos/SalesByProductType.png)
+![RevenueByProduct](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/SupplyChainPhotos/RevenueByProduct.png)
+
+- Skincare product type is the best selling  and the most revenue generated
+  
+![DefectCarriers](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/SupplyChainPhotos/DefectRatesShipping.png)
+![DefectTranspot](https://github.com/RizkiRiyadi/RizkiRiyadi.github.io/blob/main/SupplyChainPhotos/DefectRateTransportModes.png)
+
+- Defect rates for different shipping carriers relatively same, so defect rates doesn't effect by type of shipping carriers.
+- Defect rates by transportation modes lead by road modes. This means item with road modes more likely to broke.
+  
+<br/>
 
 ### Beauty Center Database
 - **Repo:**
