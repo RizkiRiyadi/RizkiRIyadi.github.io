@@ -143,10 +143,151 @@ beauty product with supplier. To improve Madyline’s management, Mady hired you
 
 **Answer:**
 1. ERD to maintain service transactions and purchase transactions.
-   I am using 
-![ERD](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Beauty%20Center%20ERD.png)
+   I am using 3NF relational database, with that i can minimize redudancy and make database work faster
+  ![ERD](https://github.com/RizkiRiyadi/BeautyCenterDatabase/blob/main/Beauty%20Center%20ERD.png)
 
+5.  Provide some query that resulting important data
+- Display EmployeeName, SupplierID, and Purchase Transaction Quantity (obtained from the  sum  of  quantity),  and  PaymentType  for  every  purchase
+  ```
+  transaction  which  the the transaction happened on the 25   day and the id of the supplier is ‘SPR008’.
+    select EmployeeName, SupplierID, [Purchase Transaction Quantity] = sum(PurchaseTransactionQuantity), PaymentTransactionType 
+  from Employee e
+  	join PurchaseTransctionDetail ptd on e.EmployeeID = ptd.EmployeeID
+  	join PurchaseTransaction pt on ptd.PurchaseTransactionID = pt.PurchaseTransactionID
+  where SupplierID = 'SPR008' and day(PurchaseTransactionDate) ='25'
+  group by EmployeeName, SupplierID, PaymentTransactionType
+  ```
+  ![image](https://github.com/user-attachments/assets/cbc7a194-a2d8-4e81-b810-95882573aadc)
 
+- Display  CustomerID,  CustomerName,  ServiceTransactionDate  and  Total  Treatment (obtained from the count of the treatment) for every customer whose gender is female and the Total Treatment is greater than 2.
+  ```
+  select c.CustomerID, CustomerName, ServiceTransactionDate, [Total Treatment] = count(TreatmentID) 
+  from Customer c
+  	join ServiceTransactionDetail std on c.CustomerID = std.CustomerID
+  	join ServiceTransaction st on st.ServiceTransactionID = std.ServiceTransactionID
+  where CustomerGender = 'Female' 
+  group by c.CustomerID, CustomerName, ServiceTransactionDate
+  having count(TreatmentID) > 2
+  ```
+  ![image](https://github.com/user-attachments/assets/90ba659b-9c4a-4c66-b5b0-5ffa314390d7)
+
+- Display SupplierName, Purchase Transaction Date (obtained from purchase date in ‘yyyy.mm.dd’), Total Product Type (obtained from the count of product purchased), and Total Quantity (obtained from the sum of quantity) for every purchase transaction which the transaction happened on the 9 month and Total Quantity is greater than 200. 
+  ```
+  select SupplierName, [Purchase Transaction Date] = convert(varchar, PurchaseTransactionDate, 102), 
+  	[Total Product Type] = count(ProductID), [Total Quantity] = sum(PurchaseTransactionQuantity)
+  from PurchaseTransaction pt
+  	join Supplier s on s.SupplierID = pt.SupplierID
+  where month(PurchaseTransactionDate) = '9' 
+  group by SupplierName, PurchaseTransactionDate
+  having sum(PurchaseTransactionQuantity) > 200
+  ```
+  ![image](https://github.com/user-attachments/assets/73e33728-2db7-47e9-8ab3-37c2a6679f7f)
+
+- Display  CustomerName  (obtained  from  customer’s  name  in  uppercase  format), CustomerGender, RoomThemeName,  and  Service  Transaction  Date obtained from service date in ‘yyyy.mm.dd’) for every service transaction that happened on the 25  day and the salary of employee is less than the average of all employee’s salary. (alias subquery)
+  ```
+   select EmployeeName, [Employee Gender] = left(EmployeeGender, 1), CustomerName, 
+  	[Total Service Transaction] = count(st.ServiceTransactionID)
+    from Employee e
+    	join ServiceTransaction st on e.EmployeeID = st.EmployeeID
+    	join ServiceTransactionDetail std on std.ServiceTransactionID = st.ServiceTransactionID
+    	join Customer c on c.CustomerID = std.CustomerID
+    where day(ServiceTransactionDate) % 2 = 0
+    group by EmployeeName, EmployeeGender, CustomerName, st.ServiceTransactionID
+    having avg(EmployeeSalary) < 5000000
+  ```
+  ![image](https://github.com/user-attachments/assets/a3275168-6b05-4133-aad8-fcf428b79842)
+
+- Display  CustomerName  (obtained  from  customer’s  name  in  uppercase  format), CustomerGender, RoomThemeName,  and  Service  Transaction  Date (obtained from service date in ‘yyyy.mm.dd’) for every service transaction that happened on the 25  day and the salary of employee is less than the average of all employee’s salary. (alias subquery) 
+ ```
+  select [CustomerName] = upper(CustomerName), CustomerGender, RoomThemeName, 
+	[Service Transaction Date] = convert(varchar, ServiceTransactionDate, 102)
+  from Customer c 
+  	join ServiceTransactionDetail std on std.CustomerID = c.CustomerID
+  	join ServiceTransaction st on st.ServiceTransactionID = std.ServiceTransactionID
+  	join RoomTheme rt on st.RoomThemeID = rt.RoomThemeID
+  	join Employee e on e.EmployeeID = st.EmployeeID,
+  	(select Average = avg(EmployeeSalary) from Employee) as x
+  where day(ServiceTransactionDate) = '25' 
+  	and EmployeeSalary < x.Average
+  group by CustomerGender, RoomThemeName, ServiceTransactionDate, CustomerName
+  ```
+  ![image](https://github.com/user-attachments/assets/1e470dce-b033-41a3-a5cf-80ab265920ed)
+
+- Display SupplierName, PurchaseDate (obtained from purchases date in ‘Mon dd, yyyy’ format), and ProductName (obtained from the product’s name in lowercase format) for every purchase transaction with product price is greater than the average price of all products and the supplier’s name ends with ‘Distribution’. (alias subquery) 
+  ```
+  select SupplierName, PurchaseDate = convert(varchar, PurchaseTransactionDate, 107), ProductName = lower(ProductName)
+  from Supplier s, PurchaseTransaction pt, Product p, (select Average = avg(ProductPrice) from Product) as x
+  where s.SupplierID = pt.SupplierID 
+  	and p.ProductID = pt.ProductID 
+  	and  ProductPrice > x.Average
+  	and SupplierName like '% Distribution'
+  group by SupplierName, PurchaseTransactionDate, ProductName
+
+  ```
+  ![image](https://github.com/user-attachments/assets/234ee5e7-3272-43c4-961b-efc06dbfe4bf)
+
+- Display Total Purchase Transaction (obtained from count of purchase transactions and ended  with  ‘  Transaction(s)’),  SupplierName,  Employee  Name (obtained  from employee’s  name  from  the  first  character  until  a  character  before  space),  and PurchaseTransactionDate for every purchase transaction with the quantity is lower than the average quantity of all purchase transaction and the purchase transaction happened on Wednesday. (alias subquery)
+  ```
+  Select [Total Purchase Transaction] = cast(count(pt.PurchaseTransactionID) as varchar) + ' Transaction(s)', SupplierName, 
+  	[Employee Name] = LEFT(EmployeeName,CHARINDEX(' ',EmployeeName + ' ')-1), PurchaseTransactionDate
+  from PurchaseTransaction pt, Supplier s, Employee e, PurchaseTransctionDetail ptd,
+  	(select Average = avg(PurchaseTransactionQuantity) from PurchaseTransaction) as z
+  where s.SupplierID = pt.SupplierID
+  	and pt.PurchaseTransactionID = ptd.PurchaseTransactionID
+  	and e.EmployeeID = ptd.EmployeeID
+  	and PurchaseTransactionQuantity < z.Average 
+  	and datename(weekday, PurchaseTransactionDate) = 'Wednesday'
+  group by SupplierName, EmployeeName, PurchaseTransactionDate
+  ```
+  ![image](https://github.com/user-attachments/assets/a54f5293-c78f-4db5-a1fe-a39f116a9009)
+
+- Display SupplierName, Purchase Transaction Date (obtained from purchases date in ‘mm/dd/yyyy’ format), ProductName, Product Number (obtained from ProductID by replacing the first three characters with ‘PR’), and Total Purchase Transaction (obtained from the count of the transaction) for every purchase transaction where the quantity is lower than the sum of all quantity that have ProductID is ‘PDT005’. Sort the result by supplier name in descending order (alias subquery)
+  ```
+  select SupplierName, [Purchase Transaction Date] = convert(varchar, PurchaseTransactionDate, 101), ProductName,	
+  	[Product Number] = replace(p.ProductID, 'PDT', 'PR') , 
+  	[Total Purchase Transaction] = count(pt.PurchasetransactionID)
+  from Supplier s, PurchaseTransaction pt, Product p,
+  	(select alias = sum(PurchaseTransactionQuantity) from PurchaseTransaction) as x
+  where pt.SupplierID = s.SupplierID 
+  	and p.ProductID = pt.ProductID
+  	and PurchaseTransactionQuantity < x.alias 
+  	and p.ProductID = 'PDT005'
+  group by SupplierName, PurchaseTransactionDate, ProductName, p.ProductID
+  order by SupplierName desc
+  ```
+  ![image](https://github.com/user-attachments/assets/9912665d-758d-4415-ac8f-8bd9e8aa2b50)
+
+  
+- Create  a  view  named  ‘ViewPurchaseTransaction’  to  display  EmployeeName, SupplierName,  Total  Purchase  Transaction  (obtained  from  the  count  of purchase transaction), and Maximum Purchase (obtained from the maximum of quantity) for every employee whose name contains ‘d’ character and the Total Purchase Transaction is greater than 1.
+  ```
+  create view ViewPurchaseTransaction as 
+  select EmployeeName, SupplierName, [Total Purchase Transaction] = count(t.TreatmentID), 
+  	[Maximum Purchase] = max(PurchaseTransactionQuantity)
+  from Employee e
+  	join ServiceTransaction st on st.EmployeeID = e.EmployeeID
+  	join Treatment t on t.TreatmentID = st.TreatmentID
+  	join PurchaseTransctionDetail ptd on ptd.EmployeeID = e.EmployeeID
+  	join PurchaseTransaction pt on pt.PurchaseTransactionID = ptd.PurchaseTransactionID
+  	join Supplier s on s.SupplierID = pt.SupplierID
+  where EmployeeName like 'd%' or EmployeeName like '%d%' or EmployeeName like '%d'
+  group by EmployeeName, SupplierName
+  having count(t.TreatmentID) > 1
+  ```
+  ![image](https://github.com/user-attachments/assets/1b0ac502-994f-4c01-9bc8-e5782896f617)
+
+- Create a view named ‘ViewEmployeeSalaryinRoomDetail’ to display EmployeeName. EmployeeSalary, ServiceTransactionID, Total Treatment Transaction (obtained from the count of treatment) for every transaction that happened in room ‘ROT001’ and average of employee salary is less than 4000000.
+  ```
+  create view ViewEmployeeSalaryinRoomDetail as 
+  select EmployeeName, EmployeeSalary, ServiceTransactionID, [Total Treatment Transaction] = count(t.TreatmentID) 
+  from Employee e
+  	join ServiceTransaction st on e.EmployeeID = st.EmployeeID
+  	join Treatment t on t.TreatmentID = st.TreatmentID
+  where RoomThemeID = 'ROT001'
+  group by EmployeeName, EmployeeSalary, ServiceTransactionID, t.TreatmentID
+  having avg(EmployeeSalary) < 4000000
+  ```
+  ![image](https://github.com/user-attachments/assets/0a4adc9a-3d31-4645-a373-a29a76dc2313)
+  
 ## CV
 Link: [here](https://drive.google.com/file/d/1xZBB3X-Lh30Yw9mKAcJqkjlQJHtzz5mU/view?usp=sharing)
 
